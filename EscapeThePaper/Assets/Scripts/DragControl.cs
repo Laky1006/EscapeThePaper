@@ -4,8 +4,10 @@ public class DragControl : MonoBehaviour
 {
     private bool dragging = false;
     private bool playerOn = false;
+
     private Vector3 offset;
     public GameObject player;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -30,6 +32,7 @@ public class DragControl : MonoBehaviour
 
     private void OnMouseUp()
     {
+
         dragging= false;
     }
 
@@ -38,7 +41,7 @@ public class DragControl : MonoBehaviour
         
         if (collision.gameObject.name == "Player" )
         {
-            Debug.Log("lalala");
+            
             playerOn = true;
         }
     }
@@ -47,7 +50,6 @@ public class DragControl : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            Debug.Log("meme");
             playerOn = false;
         }
     }
