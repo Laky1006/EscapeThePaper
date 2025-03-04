@@ -148,3 +148,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  StickyNoteCollider: {fileID: 134607417125840329}
+  PlayerCollider: {fileID: 0}

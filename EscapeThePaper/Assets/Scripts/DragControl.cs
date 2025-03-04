@@ -4,9 +4,10 @@ public class DragControl : MonoBehaviour
 {
     private bool dragging = false;
     private bool playerOn = false;
-
     private Vector3 offset;
-    public GameObject player;
+    public Collider2D StickyNoteCollider;
+    public Collider2D PlayerCollider;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,7 +18,7 @@ public class DragControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        PlayerOn();
         if (dragging && !playerOn)
         {
             transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
@@ -36,21 +37,20 @@ public class DragControl : MonoBehaviour
         dragging= false;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void PlayerOn()
     {
-        
-        if (collision.gameObject.name == "Player" )
+        if (!dragging)
         {
-            
-            playerOn = true;
+            if (StickyNoteCollider.IsTouching(PlayerCollider))
+            {
+                playerOn = true;                
+            } 
+            else
+            {
+                playerOn = false;                
+            }
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.name == "Player")
-        {
-            playerOn = false;
-        }
-    }
+
 }
