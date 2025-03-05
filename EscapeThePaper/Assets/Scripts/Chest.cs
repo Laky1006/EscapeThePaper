@@ -3,12 +3,13 @@ using UnityEngine;
 public class Chest : MonoBehaviour, IInteractable
 {
     public bool IsOpen;
-    public Sprite openedCorner;
+    public Sprite openedChest;
+    public GameObject combinationLock;
 
     public void Interact()
     {
         if (!CanInteract()) return;
-        OpenCorner();
+        OpenCombinationLock();
     }
 
     public bool CanInteract()
@@ -16,11 +17,21 @@ public class Chest : MonoBehaviour, IInteractable
         return !IsOpen;
     }
 
-    private void OpenCorner()
+    private void OpenCombinationLock()
+    {
+        combinationLock.SetActive(true);
+    }
+
+    public void CloseCombinationLock()
+    {
+        combinationLock.SetActive(false);
+    }
+
+    private void OpenChest()
     {
         if (IsOpen = true)
         {
-            GetComponent<SpriteRenderer>().sprite = openedCorner;
+            GetComponent<SpriteRenderer>().sprite = openedChest;
         }
     }
 }
