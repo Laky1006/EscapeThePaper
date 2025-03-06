@@ -5,18 +5,26 @@ public class CombinationLock_Symbols : MonoBehaviour
 {
     public Image startingImage;
     public Sprite[] lockSprites;
-    int i = 0;
+    private int currentSymbolIndex = 0; // Store the current symbol index
+
+    public CombinationLock combLockManager;
+
+    public int GetSymbolIndex()
+    {
+        return currentSymbolIndex; // Return the current symbol index
+    }
 
     public void ChangeLockSymbol()
     {
-        if (i == lockSprites.Length -1)
+        if (currentSymbolIndex == lockSprites.Length - 1)
         {
-            i = 0;
+            currentSymbolIndex = 0;
         }
         else
         {
-            i++;
+            currentSymbolIndex++;
         }
-        startingImage.sprite = lockSprites[i];
+        startingImage.sprite = lockSprites[currentSymbolIndex];
+        combLockManager.CheckCombination();
     }
 }

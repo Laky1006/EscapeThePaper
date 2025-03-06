@@ -8,13 +8,6 @@ public class DragControl : MonoBehaviour
     public Collider2D StickyNoteCollider;
     public Collider2D PlayerCollider;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
