@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PushButton : MonoBehaviour
 {
@@ -12,12 +13,14 @@ public class PushButton : MonoBehaviour
     void Start()
     {
         buttonName = gameObject.name;
-        deviderPosition = buttonName.IndexOf("_");
+        deviderPosition = buttonName.IndexOf("-");
+        buttonValue = buttonName.Substring(0, deviderPosition);
+
+        gameObject.GetComponent<Button>().onClick.AddListener(ButtonClicked);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void ButtonClicked()
     {
-        
+        ButtonPressed(buttonValue);
     }
 }
