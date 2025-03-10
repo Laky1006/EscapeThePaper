@@ -30,7 +30,7 @@ public class Door : MonoBehaviour, IInteractable
         playerMove.enabled = true;
     }
 
-    public void OpenChest()
+    public void OpenDoor()
     {
 
         if (IsOpen) return; // Prevent reopening

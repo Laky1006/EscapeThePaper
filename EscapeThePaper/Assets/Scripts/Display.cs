@@ -1,18 +1,44 @@
+using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Display : MonoBehaviour
 {
 
-    [SerializeField] private Sprite[] digits;
-    [SerializeField] private Image[] characters;
+    public Door door;
 
-    private string codeSequence;
+    public TMP_Text codeText;
+    string codeTextValue = "";
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Update()
     {
-        codeSequence = "";
+        codeText.text = codeTextValue;
+
+        if (codeTextValue == "1234")
+        {
+            door.OpenDoor();
+        } 
+        else if (codeTextValue.Length >= 4 )
+        {
+            StartCoroutine(FlashRed());
+        }
+             
     }
 
-    public void 
+    IEnumerator FlashRed()
+    {
+       
+        codeText.color = Color.red;
+        yield return new WaitForSeconds(0.3f);
+        
+        codeText.color = new Color32(69, 69, 69, 255);
+        
+        codeTextValue = "";
+    }
+
+    public void NumberButton(string value)
+    {
+        codeTextValue += value;
+    }
 }

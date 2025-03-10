@@ -40,7 +40,6 @@ public class Chest : MonoBehaviour, IInteractable
         IsOpen = true; // Mark chest as opened
         GetComponent<SpriteRenderer>().sprite = openedChest;
         CloseCombinationLock();
-        Debug.Log("Chest is now open!");
 
         puzzlePiece.SetActive(true);
         
