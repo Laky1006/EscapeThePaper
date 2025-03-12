@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveInput;
     private Vector2 rawInput;
 
-    public float rayLength = 0.1f; // Adjust for precision
+    public float rayLength = 0.2f; // Adjust for precision
     public LayerMask paperLayer;
 
     void FixedUpdate()

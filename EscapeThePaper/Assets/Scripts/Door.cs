@@ -35,6 +35,8 @@ public class Door : MonoBehaviour, IInteractable
 
         if (IsOpen) return; // Prevent reopening
 
+        FindAnyObjectByType<AudioManager>().Play("Unlock");
+
         IsOpen = true; // Mark chest as opened
         GetComponent<SpriteRenderer>().sprite = openedDoor;
         CloseNumberLock();
